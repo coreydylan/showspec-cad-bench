@@ -1,0 +1,84 @@
+{
+  "labor_operations": {
+    "carpentry_standard": {
+      "name": "Carpentry (Standard)",
+      "description": "Standard panel cutting, assembly",
+      "rate_per_hour": 75.00,
+      "unit": "hour",
+      "calc_methods": {
+        "per_sqft": 0.02,
+        "per_panel": 0.5,
+        "per_joint": 0.15
+      }
+    },
+    "carpentry_curved": {
+      "name": "Carpentry (Curved)",
+      "description": "Curved panel fabrication, bending, laminating",
+      "rate_per_hour": 95.00,
+      "calc_methods": {
+        "per_sqft": 0.05,
+        "per_panel": 1.5
+      }
+    },
+    "laminate_application": {
+      "name": "Laminate Application",
+      "description": "Contact cement and laminate application",
+      "rate_per_hour": 65.00,
+      "calc_methods": {
+        "per_sqft": 0.015
+      }
+    },
+    "paint_prep": {
+      "name": "Paint Prep",
+      "description": "Sanding, priming, masking",
+      "rate_per_hour": 55.00,
+      "calc_methods": {
+        "per_sqft": 0.01
+      }
+    },
+    "paint_finish": {
+      "name": "Paint (Finish Coat)",
+      "description": "Spray finish application",
+      "rate_per_hour": 65.00,
+      "calc_methods": {
+        "per_sqft": 0.008
+      }
+    },
+    "seg_frame_assembly": {
+      "name": "SEG Frame Assembly",
+      "description": "Aluminum frame cutting and assembly",
+      "rate_per_hour": 70.00,
+      "calc_methods": {
+        "per_linear_ft": 0.05,
+        "per_frame": 0.75
+      }
+    },
+    "electrical_led": {
+      "name": "Electrical (LED)",
+      "description": "LED strip installation and wiring",
+      "rate_per_hour": 85.00,
+      "calc_methods": {
+        "per_linear_ft": 0.03,
+        "per_connection": 0.25
+      }
+    },
+    "qc_inspection": {
+      "name": "QC Inspection",
+      "description": "Quality control and final inspection",
+      "rate_per_hour": 60.00,
+      "calc_methods": {
+        "per_component": 0.25,
+        "minimum": 0.5
+      }
+    },
+    "site_install": {
+      "name": "Site Install (I&D)",
+      "description": "On-site installation and dismantle",
+      "rate_per_hour": 125.00,
+      "calc_methods": {
+        "per_component": 0.5,
+        "per_sqft": 0.005
+      }
+    }
+  }
+}

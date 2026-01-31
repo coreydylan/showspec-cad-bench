@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  cad-bench:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - FREECAD_PATH=/usr/bin/freecad
+      - TEMPLATE_DIR=/app/templates
+      - MATERIAL_LIBRARY=/app/materials/material_library.json
+      - LABOR_RATES=/app/materials/labor_rates.json
+      - LOG_LEVEL=INFO
+    volumes:
+      - ../api:/app/api:ro
+      - ../templates:/app/templates:ro
+      - ../materials:/app/materials:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

@@ -1,0 +1,89 @@
+{
+  "materials": {
+    "plywood_3/4": {
+      "name": "Plywood 3/4\"",
+      "description": "3/4 inch cabinet-grade plywood",
+      "thickness": 0.75,
+      "sheet_size": {"length": 96, "width": 48},
+      "unit": "sheet",
+      "cost_per_unit": 65.00,
+      "weight_per_sqft": 2.3,
+      "aliases": ["Plywood 3/4", "3/4 Plywood", "Cabinet Plywood"]
+    },
+    "plywood_1/2": {
+      "name": "Plywood 1/2\"",
+      "thickness": 0.5,
+      "sheet_size": {"length": 96, "width": 48},
+      "unit": "sheet",
+      "cost_per_unit": 48.00,
+      "weight_per_sqft": 1.5,
+      "aliases": ["Plywood 1/2", "1/2 Plywood"]
+    },
+    "bendable_plywood": {
+      "name": "Bendable Plywood 1/4\"",
+      "description": "Flexible plywood for curved applications",
+      "thickness": 0.25,
+      "sheet_size": {"length": 96, "width": 48},
+      "unit": "sheet",
+      "cost_per_unit": 55.00,
+      "min_bend_radius": 12,
+      "weight_per_sqft": 0.8,
+      "aliases": ["Bendable Plywood", "Wiggle Board", "Bendable Plywood 1/4"]
+    },
+    "laminate_white": {
+      "name": "Laminate (White)",
+      "description": "High-pressure laminate, white finish",
+      "thickness": 0.05,
+      "sheet_size": {"length": 120, "width": 60},
+      "unit": "sheet",
+      "cost_per_unit": 85.00,
+      "weight_per_sqft": 0.5,
+      "aliases": ["Laminate", "White Laminate", "HPL"]
+    },
+    "laminate_custom": {
+      "name": "Laminate (Custom Print)",
+      "description": "Digitally printed laminate",
+      "thickness": 0.05,
+      "sheet_size": {"length": 120, "width": 60},
+      "unit": "sheet",
+      "cost_per_unit": 150.00,
+      "aliases": ["Custom Laminate", "Printed Laminate"]
+    },
+    "seg_fabric": {
+      "name": "SEG Fabric (Dye-Sub)",
+      "description": "Silicone-edge graphics fabric, dye-sublimation printed",
+      "unit": "sqft",
+      "cost_per_unit": 12.00,
+      "weight_per_sqft": 0.1,
+      "aliases": ["SEG Fabric", "SEG"]
+    },
+    "seg_frame_aluminum": {
+      "name": "SEG Frame (Aluminum)",
+      "description": "Aluminum extrusion for SEG frames",
+      "unit": "linear_ft",
+      "cost_per_unit": 8.50,
+      "aliases": ["SEG Frame", "Aluminum Frame"]
+    },
+    "led_strip": {
+      "name": "LED Strip (Backlight)",
+      "description": "24V LED strip for lightbox backlighting",
+      "unit": "linear_ft",
+      "cost_per_unit": 4.50,
+      "aliases": ["LED Strip", "LED Backlight"]
+    },
+    "connector_type_a": {
+      "name": "Panel Connector (Type A)",
+      "description": "Standard panel-to-panel connector",
+      "unit": "each",
+      "cost_per_unit": 12.00,
+      "aliases": ["Connector A", "Panel Connector"]
+    },
+    "connector_corner": {
+      "name": "Corner Connector",
+      "description": "90-degree corner connector",
+      "unit": "each",
+      "cost_per_unit": 18.00,
+      "aliases": ["Corner", "90 Degree Connector"]
+    }
+  }
+}
