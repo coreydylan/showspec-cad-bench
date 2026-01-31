@@ -124,3 +124,99 @@ class HealthResponse(BaseModel):
     woodworking_wb_version: str
     templates_loaded: int
     uptime_seconds: float
+
+
+# =============================================================================
+# DXF/DWG Import Models
+# =============================================================================
+
+class DXFImportJobStatus(str, Enum):
+    PENDING = "pending"
+    UPLOADING = "uploading"
+    PROCESSING = "processing"
+    EXTRACTING_LAYERS = "extracting_layers"
+    CONVERTING_GEOMETRY = "converting_geometry"
+    OPTIMIZING = "optimizing"
+    READY_FOR_MAPPING = "ready_for_mapping"
+    IMPORTING = "importing"
+    COMPLETED = "completed"
+    FAILED = "failed"
+
+
+class DXFLayerBounds(BaseModel):
+    minX: float
+    minY: float
+    minZ: float
+    maxX: float
+    maxY: float
+    maxZ: float
+
+
+class DXFLayerDimensions(BaseModel):
+    width: float  # feet
+    height: float  # feet
+    depth: float  # feet
+
+
+class LayerMappingSuggestion(BaseModel):
+    componentCategory: str  # ComponentCategory | 'custom' | 'exclude'
+    componentType: str  # e.g., 'wall-panel', 'counter', 'display-stand'
+    confidence: float  # 0-1
+    reasoning: str
+
+
+class CADLayer(BaseModel):
+    id: str
+    name: str
+    originalName: str  # Raw name from file
+    color: str  # Hex color from CAD
+    entityCount: int
+    vertexCount: int
+    bounds: DXFLayerBounds
+    dimensions: DXFLayerDimensions
+    previewUrl: Optional[str] = None
+    thumbnailUrl: Optional[str] = None
+    meshCount: int
+    isVisible: bool
+    suggestedMapping: Optional[LayerMappingSuggestion] = None
+
+
+class DXFImportJob(BaseModel):
+    id: str
+    status: DXFImportJobStatus
+    progress: int  # 0-100
+    message: str
+    createdAt: str
+    updatedAt: str
+    fileName: str
+    fileSize: int
+    fileFormat: Literal["dxf", "dwg", "step", "iges"]
+    layers: Optional[list[CADLayer]] = None
+    previewUrl: Optional[str] = None
+    error: Optional[str] = None
+
+
+class DXFUploadResponse(BaseModel):
+    jobId: str
+    status: DXFImportJobStatus
+    message: str
+
+
+class DXFJobStatusResponse(BaseModel):
+    job: DXFImportJob
+
+
+class DXFLayersResponse(BaseModel):
+    jobId: str
+    layers: list[CADLayer]
+
+
+class DXFPreviewRequest(BaseModel):
+    layerIds: Optional[list[str]] = None  # If None, preview all layers
+    quality: Literal["low", "medium", "high"] = "medium"
+
+
+class DXFPreviewResponse(BaseModel):
+    jobId: str
+    previewUrl: str
+    format: str  # "gltf" or "glb"
